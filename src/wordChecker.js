@@ -27,7 +27,7 @@ function duplicateCheck(input) {
 }
 
 function verifyAlphaNumeric(input) {
-	let regex = /^[a-zA-Z() ]+$/;
+	let regex = /^[a-zA-Z0-9() ]+$/;
 	let tester = regex.test(input);
 	return tester;
 }
