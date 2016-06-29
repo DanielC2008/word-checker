@@ -1,35 +1,42 @@
 "use strict";
 
-let input = "yo everybody yo mate888*";
+
+
+$("#button").click(function() {
+let input = $("#input").val();
+let check1 = checkWordCount(input) === false ? alert1() : alert2(); 
+let check2 = duplicateCheck(input) === false ? alert1() : alert2(); 
+let check3 = verifyAlphaNumeric(input) === false ? alert1() : alert2(); 
+});
 
 function checkWordCount(input) {
-	let arr = input.split(" ");
-	duplicateCheck(arr);
-	return arr.length < 100 ? true : false;
+	let arr = input.split(" ").length < 100 ? true : false;
+	return arr;
 }
 
-function duplicateCheck(arr) {
+function duplicateCheck(input) {
+	let arr = input.split(" ").sort();
 	let counter = 0;
-	let newArr = arr.sort();
-	newArr.forEach(function(currVal, index) {
-		if (currVal === newArr[index + 1]) {
+	arr.forEach(function(currVal, index) {
+		if (currVal === arr[index + 1]) {
 			counter++; 	
 		}
 	});
-	return counter.length === 0 ? true : false;
+	return counter === 0 ? true : false;
 
 }
 
 function verifyAlphaNumeric(input) {
-	let regex = /^[A-Za-z0-9]/;
-	return regex.test(input);
+	let regex = /^[a-zA-Z() ]+$/;
+	let tester = regex.test(input);
+	return tester;
 }
 
 
+function alert1() {
+	alert("NOPE!");
+}
 
-
-
-
-
-
-checkWordCount(input);
+function alert2() {
+	alert("WootWoot!");
+}

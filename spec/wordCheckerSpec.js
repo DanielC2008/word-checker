@@ -11,7 +11,7 @@ describe("the specification for a written user input", function() {
 		expect(duplicateCheck).toBeDefined;
 	});
 	it("should not allow duplicate words", function() {
-		expect(duplicateCheck(["yo", "yo", "yall"])).toBeFalsy;
+		expect(duplicateCheck("yo yo yall")).toBeFalsy;
 	});
 	it ("should have a verify alpha numeric function", function(){
 		expect(verifyAlphaNumeric).toBeDefined;
